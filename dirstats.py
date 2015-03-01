@@ -8,8 +8,28 @@ import statistics
 
 # WARNING
 # This is only for the purpose of showing my state pattern, there is
-# consideration for memory constraint.
+# no consideration for memory constraint.
 #
+
+'''
+The idea, which I think is effectively a state pattern, is to prevent:
+
+  * Using global variables that could leak into the local functions.
+    ==> The variables are local to the __init__ method.
+
+  * The usual main function which prevent access to the variable from the repl.
+    ==> All the variables are accessible from the repl via the object, and
+        can be manipulated and used by the functions.
+
+  * Make the functions aware of the class/object, which you need to when using
+    a class as a structure.
+    ==> You pass the variables directly with no reference to either a class
+        nor an object.
+
+
+Ref:
+  - http://en.wikipedia.org/wiki/State_pattern
+'''
 
 def calculate_average(all_values):
     return statistics.mean(all_values)
