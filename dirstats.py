@@ -51,7 +51,7 @@ def find_smallest(all):
 
 def get_all_files(directory):
     all_files = dict()
-    for root, dirs, files in os.walk(directory):
+    for root, __, files in os.walk(directory):
         for fn in files:
             abs_path = os.path.join(root, fn)
             all_files[abs_path] = os.path.getsize(abs_path)
