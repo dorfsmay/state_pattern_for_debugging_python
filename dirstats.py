@@ -12,23 +12,25 @@ import statistics
 #
 
 '''
-The idea, which I think is effectively a state pattern, is to prevent:
+The idea, which I think is effectively a state pattern(1), is to prevent:
 
   * Using global variables that could leak into the local functions.
     ==> The variables are local to the __init__ method.
 
-  * The usual main function which prevent access to the variable from the repl.
+  * The usual main (2) function which prevent access to the variable from the repl.
     ==> All the variables are accessible from the repl via the object, and
         can be manipulated and used by the functions.
 
   * Make the functions aware of the class/object, which you need to when using
-    a class as a structure.
+    a class as a structure (3).
     ==> You pass the variables directly with no reference to either a class
         nor an object.
 
 
 Ref:
-  - http://en.wikipedia.org/wiki/State_pattern
+  1. http://en.wikipedia.org/wiki/State_pattern
+  2. https://docs.python.org/3/library/__main__.html
+  3. https://docs.python.org/3/tutorial/classes.html#odds-and-ends
 '''
 
 def calculate_average(all_values):
