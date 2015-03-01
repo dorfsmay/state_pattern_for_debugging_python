@@ -12,7 +12,11 @@ import statistics
 #
 
 '''
-The idea, which I think is effectively a state pattern(1), is to prevent:
+For some problems (typically multi-thread and multi-proces), I want to write
+in a more functional way, and not binding functions to data. I then split
+functions in independant entities which only affect the data they are provided
+with. This create another set of issues when trying to use the python REPLs.
+The idea here, which I think is effectively a state pattern(1), is to prevent:
 
   * Using global variables that could leak into the local functions.
     ==> The variables are local to the __init__ method.
